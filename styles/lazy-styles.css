@@ -1,1 +1,259 @@
 /* below the fold CSS goes here */
+
+/* Map Section Styles */
+.map-section {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  padding: 4rem 2rem;
+  margin-top: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.map-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.map-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.map-content h2 {
+  color: #ffffff;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+  font-weight: 700;
+}
+
+.map-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 2rem;
+  align-items: start;
+}
+
+.map {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  padding: 1rem;
+  border: 2px solid rgba(59, 130, 246, 0.3);
+  box-shadow: 
+    0 0 30px rgba(59, 130, 246, 0.2),
+    inset 0 0 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.map-overlay {
+  background: rgba(15, 23, 42, 0.8);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.map-info h3 {
+  color: #60a5fa;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+}
+
+.map-info p {
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.map-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.map-btn {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.875rem;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.map-btn:hover {
+  background: linear-gradient(135deg, #60a5fa, #3b82f6);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.map-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(59, 130, 246, 0.3);
+}
+
+/* Map SVG Styles */
+.map svg {
+  width: 100%;
+  height: 400px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.map svg:hover {
+  transform: scale(1.02);
+}
+
+.continent {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.continent:hover {
+  filter: brightness(1.2);
+}
+
+.map-point {
+  transition: all 0.3s ease;
+  cursor: pointer;
+  filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.6));
+}
+
+.map-point:hover {
+  filter: drop-shadow(0 0 12px rgba(239, 68, 68, 0.8));
+}
+
+.map-label {
+  font-family: 'Arial', sans-serif;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  transition: all 0.3s ease;
+}
+
+/* Matrix Background Animation */
+#matrix-bg {
+  animation: matrixFade 2s ease-in-out;
+}
+
+@keyframes matrixFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .map-section {
+    padding: 2rem 1rem;
+  }
+  
+  .map-content h2 {
+    font-size: 2rem;
+  }
+  
+  .map-wrapper {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .map-overlay {
+    order: -1;
+  }
+  
+  .map-controls {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .map-btn {
+    flex: 1;
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .map-content h2 {
+    font-size: 1.75rem;
+  }
+  
+  .map-info h3 {
+    font-size: 1.25rem;
+  }
+  
+  .map-controls {
+    flex-direction: column;
+  }
+  
+  .map-btn {
+    min-width: auto;
+  }
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .map-section {
+    background: linear-gradient(135deg, #020617 0%, #0f172a 50%, #1e293b 100%);
+  }
+  
+  .map-overlay {
+    background: rgba(2, 6, 23, 0.9);
+  }
+}
+
+/* Animation for map elements */
+@keyframes mapGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.6));
+  }
+  50% {
+    filter: drop-shadow(0 0 16px rgba(59, 130, 246, 0.8));
+  }
+}
+
+.map svg {
+  animation: mapGlow 4s ease-in-out infinite;
+}
+
+/* Loading animation for map */
+.map::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.2), transparent);
+  animation: mapLoading 2s infinite;
+}
+
+@keyframes mapLoading {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
