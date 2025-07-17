@@ -40,6 +40,114 @@
   /* nav height */
   --nav-height: 64px;
 
+  /* theme toggle */
+  --theme-toggle-size: 40px;
+  --theme-toggle-border-radius: 50%;
+  --theme-toggle-bg: #f0f0f0;
+  --theme-toggle-border: #ddd;
+  --theme-toggle-icon-color: #666;
+  --theme-toggle-hover-bg: #e0e0e0;
+}
+
+/* Dark mode variables */
+[data-theme="dark"] {
+  --link-color: #4dabf7;
+  --link-hover-color: #74c0fc;
+  --background-color: #1a1a1a;
+  --overlay-background-color: #2d2d2d;
+  --highlight-background-color: #404040;
+  --text-color: #e0e0e0;
+  --theme-toggle-bg: #2d2d2d;
+  --theme-toggle-border: #404040;
+  --theme-toggle-icon-color: #e0e0e0;
+  --theme-toggle-hover-bg: #404040;
+}
+
+/* Theme toggle button styles */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: var(--theme-toggle-size);
+  height: var(--theme-toggle-size);
+  border-radius: var(--theme-toggle-border-radius);
+  background: var(--theme-toggle-bg);
+  border: 2px solid var(--theme-toggle-border);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle:hover {
+  background: var(--theme-toggle-hover-bg);
+  transform: scale(1.05);
+}
+
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--theme-toggle-icon-color);
+  transition: fill 0.3s ease;
+}
+
+.theme-toggle .sun-icon {
+  display: none;
+}
+
+.theme-toggle .moon-icon {
+  display: block;
+}
+
+[data-theme="dark"] .theme-toggle .sun-icon {
+  display: block;
+}
+
+[data-theme="dark"] .theme-toggle .moon-icon {
+  display: none;
+}
+
+/* Smooth transitions for theme changes */
+body,
+header,
+main,
+footer,
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Ensure theme toggle doesn't interfere with header */
+@media (max-width: 900px) {
+  .theme-toggle {
+    top: 15px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+  }
+  
+  .theme-toggle svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Dark mode specific adjustments for better contrast */
+[data-theme="dark"] main pre {
+  background-color: var(--highlight-background-color);
+  border: 1px solid var(--overlay-background-color);
+}
+
+[data-theme="dark"] main input {
+  background-color: var(--overlay-background-color);
+  border-color: var(--highlight-background-color);
+  color: var(--text-color);
+}
+
+[data-theme="dark"] hr {
+  border-bottom-color: var(--highlight-background-color);
 }
 
 @media (min-width: 900px) {

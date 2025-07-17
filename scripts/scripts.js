@@ -12,6 +12,7 @@ import {
   loadBlocks,
   loadCSS,
 } from './lib-franklin.js';
+import ThemeToggle from './theme-toggle.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
 
@@ -64,6 +65,10 @@ export function decorateMain(main) {
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
   decorateTemplateAndTheme();
+  
+  // Initialize theme toggle
+  new ThemeToggle();
+  
   const main = doc.querySelector('main');
   if (main) {
     decorateMain(main);
