@@ -19,7 +19,7 @@ function createMatrixBackground() {
     width: 100%;
     height: 100%;
     z-index: -1;
-    opacity: 0.1;
+    opacity: 0.03;
     pointer-events: none;
   `;
   
@@ -44,7 +44,7 @@ function createMatrixBackground() {
     ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
-    ctx.fillStyle = '#0F0';
+    ctx.fillStyle = '#6c757d';
     ctx.font = fontSize + 'px monospace';
     
     for (let i = 0; i < drops.length; i++) {
